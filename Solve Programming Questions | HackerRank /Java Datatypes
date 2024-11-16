@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+        for(int t = 0; t < T; t++) {
+            String input = sc.next();  
+            try {
+                long num = Long.parseLong(input);  
+                System.out.println(num + " can be fitted in:");
+                if(num >= Byte.MIN_VALUE && num <= Byte.MAX_VALUE) {
+                    System.out.println("* byte");
+                }
+                if(num >= Short.MIN_VALUE && num <= Short.MAX_VALUE) {
+                    System.out.println("* short");
+                
+                if(num >= Integer.MIN_VALUE && num <= Integer.MAX_VALUE) {
+                    System.out.println("* int");
+                }
+                System.out.println("* long");
+            } catch (NumberFormatException e) {
+                System.out.println(input + " can't be fitted anywhere.");
+            }
+        }
+    }
+}
