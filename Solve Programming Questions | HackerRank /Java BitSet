@@ -1,0 +1,57 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        int size = sc.nextInt();
+        int ops = sc.nextInt();
+        BitSet b1 = new BitSet(size);
+        BitSet b2 = new BitSet(size);
+        sc.nextLine();
+        
+        for (int i = 0; i < ops; i++) {
+            String[] op = sc.nextLine().split(" ");
+            switch (op[0]) {
+                case "AND":
+                    int i1 = Integer.parseInt(op[1]) - 1;
+                    int i2 = Integer.parseInt(op[2]) - 1;
+                    if (i1 == 0 && i2 == 1) b1.and(b2);
+                    else b2.and(b1);
+                    break;
+                    
+                case "OR":
+                    i1 = Integer.parseInt(op[1]) - 1;
+                    i2 = Integer.parseInt(op[2]) - 1;
+                    if (i1 == 0 && i2 == 1) b1.or(b2);
+                    else b2.or(b1);
+                    break;
+                    
+                case "XOR":
+                    i1 = Integer.parseInt(op[1]) - 1;
+                    i2 = Integer.parseInt(op[2]) - 1;
+                    if (i1 == 0 && i2 == 1) b1.xor(b2);
+                    else b2.xor(b1);
+                    break;
+                    
+                case "FLIP":
+                    i1 = Integer.parseInt(op[1]) - 1; 
+                    int bitIndex = Integer.parseInt(op[2]);
+                    if (i1 == 0) b1.flip(bitIndex);
+                    else  b2.flip(bitIndex);
+                    break;
+                    
+                case "SET":
+                    i1 = Integer.parseInt(op[1]) - 1;
+                    bitIndex = Integer.parseInt(op[2]);
+                    if (i1 == 0) b1.set(bitIndex);
+                    else  b2.set(bitIndex);
+                    break;
+            }
+            System.out.println(b1.cardinality() + " " + b2.cardinality());
+        }
+        sc.close();
+    }
+}
