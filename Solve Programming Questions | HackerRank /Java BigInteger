@@ -1,0 +1,20 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String num1 = sc.nextLine();
+        String num2 = sc.nextLine();
+        BigInteger Num1 = new BigInteger(num1);
+        BigInteger Num2 = new BigInteger(num2);
+        BigInteger sum = Num1.add(Num2);
+        System.out.println(sum);
+        BigInteger product = Num1.multiply(Num2);
+        System.out.println(product);
+    }
+}
