@@ -1,0 +1,26 @@
+import java.util.Scanner;
+import java.util.regex.*;
+
+class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int testCases = Integer.parseInt(in.nextLine());
+
+        while (testCases > 0) {
+            String line = in.nextLine();
+            Pattern pattern = Pattern.compile("<([^>]+?)>([^<]+)</\\1>");
+            Matcher matcher = pattern.matcher(line);
+
+            boolean found = false; 
+            while (matcher.find()) {
+                String content = matcher.group(2); 
+                System.out.println(content);  
+                found = true;
+            }
+            if (!found)  System.out.println("None");
+            
+
+            testCases--;
+        }
+    }
+}
