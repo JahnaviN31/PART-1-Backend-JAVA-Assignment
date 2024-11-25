@@ -1,0 +1,47 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+        sc.nextLine(); 
+        for (int t = 0; t < T; t++) {
+            int condition = sc.nextInt();
+            int num = sc.nextInt();
+            switch (condition) {
+                case 1:
+                    System.out.println(isOdd(num));
+                    break;
+                case 2:
+                    System.out.println(isPrime(num));
+                    break;
+                case 3:
+                    System.out.println(isPalindrome(num));
+                    break;
+            }
+        }
+    }
+
+    public static String isOdd(int n) {
+        return (n & 1) != 0 ? "ODD" : "EVEN";
+    }
+
+    public static String isPrime(int n) {
+        if (n < 2) return "COMPOSITE";
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0) return "COMPOSITE";
+        }
+        return "PRIME";
+    }
+
+    public static String isPalindrome(int n) {
+        String str = Integer.toString(n);
+        String rev = new StringBuilder(str).reverse().toString();
+        return str.equals(rev) ? "PALINDROME" : "NOT PALINDROME";
+    }
+}
