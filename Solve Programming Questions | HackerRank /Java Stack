@@ -1,0 +1,26 @@
+import java.util.*;
+class Solution{
+	
+	public static void main(String []argh)
+	{
+		Scanner sc = new Scanner(System.in);
+		while (sc.hasNext()) {
+			String input=sc.next();
+      System.out.println(check(input));
+		}
+	}
+    public static boolean check(String str) {
+        Stack<Character> s = new Stack<>();
+        for (char c:str.toCharArray()) {
+            if(c=='(' || c=='{' || c=='[') s.push(c);
+            else if(c==')' && !s.isEmpty() && s.peek()=='(') s.pop();
+            else if(c=='}' && !s.isEmpty() && s.peek() == '{') s.pop();
+            else if(c==']' && !s.isEmpty() && s.peek() == '[') s.pop();
+            else return false;
+            }
+            return s.isEmpty();
+        }  
+}
+
+
+
