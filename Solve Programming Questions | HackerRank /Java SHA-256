@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        try {
+            java.security.MessageDigest md = java.security.MessageDigest.getInstance("SHA-256");
+            byte[] hb = md.digest(str.getBytes());
+            StringBuilder hexStr = new StringBuilder();
+            for (byte b:hb) {
+                hexStr.append(String.format("%02x", b));
+            }
+            System.out.println(hexStr.toString());
+        } catch (java.security.NoSuchAlgorithmException e) {
+            System.out.println("SHA-256 algorithm not found.");
+        }
+    }
+}
